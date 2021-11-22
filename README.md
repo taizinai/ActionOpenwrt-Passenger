@@ -1,4 +1,4 @@
-# 自用
+# passenger自用
 # [中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
 ### Credits
