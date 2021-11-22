@@ -16,3 +16,6 @@
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+
+git clone -b 20210531T234622 https://github.com/Zxilly/UA2F.git package/UA2F
+git clone https://github.com/CHN-beta/rkp-ipid package/rkp-ipid
