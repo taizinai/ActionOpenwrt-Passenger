@@ -1,4 +1,3 @@
-# Passenger自用
 ## 支持编译设备有：x86-64、Mi-Nano、Mi_4C
 ##### [中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 ##### Credits
