@@ -19,7 +19,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon_new/g' feeds/luci/collections/lu
 # 固件版本栏自定义用户名
 sed -i "s/OpenWrt /passenger compiled in $(TZ=UTC-8 date +%Y.%m.%d) @ OpenWrt /g" $ZZZ
 
-# UA2F配置加入内核CONFIG_NETFILTER_NETLINK_GLUE_CT
+# UA2F内核配置加入CONFIG_NETFILTER_NETLINK_GLUE_CT
 target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
 for configFile in $(ls target/linux/$target/config*)
 do
