@@ -1,4 +1,5 @@
 ## 支持编译设备有：x86-64、Mi-Nano、Mi_4C
+### 编译的是旧版本的ua2f（UA全是F的）
 ##### [中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 ##### Credits
 - [Microsoft Azure](https://azure.microsoft.com)
