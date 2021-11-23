@@ -14,10 +14,10 @@
 sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
 
 # 修改默认主题为argon_new
-sed -i 's/luci-theme-bootstrap/luci-theme-argon_new/g' feeds/luci/collections/luci/Makefile
+# sed -i 's/luci-theme-bootstrap/luci-theme-argon_new/g' feeds/luci/collections/luci/Makefile
 
-# 固件版本栏自定义用户名
-sed -i "s/OpenWrt /passenger compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ
+# 固件版本栏自定义用户名(好像改不了)
+# sed -i "s/OpenWrt /passenger compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ
 
 # UA2F内核配置加入CONFIG_NETFILTER_NETLINK_GLUE_CT
 target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
