@@ -19,7 +19,7 @@ echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 
 
 # UA2F相关插件
-git clone -b 20210531T234622 https://github.com/Zxilly/UA2F.git package/UA2F
+git clone https://github.com/Zxilly/UA2F.git package/UA2F
 git clone https://github.com/CHN-beta/rkp-ipid package/rkp-ipid
 
 # 自定义添加插件
