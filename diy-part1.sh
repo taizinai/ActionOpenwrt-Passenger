@@ -18,6 +18,10 @@ echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.de
 echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 
 
-# UA2F相关软件源
+# UA2F相关插件
 git clone -b 20210531T234622 https://github.com/Zxilly/UA2F.git package/UA2F
 git clone https://github.com/CHN-beta/rkp-ipid package/rkp-ipid
+
+# 自定义添加插件
+git clone https://github.com/lisaac/luci-app-dockerman.git package/dockerman
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
