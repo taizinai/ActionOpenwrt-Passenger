@@ -23,5 +23,4 @@ git clone https://github.com/Zxilly/UA2F.git package/UA2F
 git clone https://github.com/CHN-beta/rkp-ipid package/rkp-ipid
 
 # 自定义添加插件
-git clone https://github.com/lisaac/luci-app-dockerman.git package/dockerman
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
