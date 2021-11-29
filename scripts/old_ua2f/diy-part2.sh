@@ -18,8 +18,8 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 # 修改默认主题为argon_new
 sed -i 's/luci-theme-bootstrap/luci-theme-argon_new/g' ./feeds/luci/collections/luci/Makefile
 
-# 固件版本栏自定义用户名(好像改不了)
-# sed -i "s/OpenWrt /passenger compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ
+# 固件版本栏自定义用户名
+sed -i "s/Openwrt /passenger compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ Openwrt /g" $ZZZ
 
 # 清除登录密码
 sed -i  's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g'  openwrt/package/lean/default-settings/files/zzz-default-settings
