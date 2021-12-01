@@ -49,7 +49,9 @@ cat <<EOF >>package/lean/default-settings/files/zzz-default-settings
 uci set luci.diag.ping=www.baidu.com
 uci set luci.diag.route=www.baidu.com
 uci set luci.diag.dns=www.baidu.com
-uci commit luc
+uci commit luci
+exit 0
+EOF
 
 # UA2F内核配置加入CONFIG_NETFILTER_NETLINK_GLUE_CT
 target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
