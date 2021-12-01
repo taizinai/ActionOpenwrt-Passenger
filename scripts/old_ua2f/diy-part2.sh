@@ -24,19 +24,15 @@ sed -i 's/time1.cloud.tencent.com/time1.cloud.tencent.com/g' package/base-files/
 sed -i 's/time.ustc.edu.cn/stdtime.gov.hk/g' package/base-files/files/bin/config_generate
 sed -i 's/cn.pool.ntp.org/pool.ntp.org/g' package/base-files/files/bin/config_generate
 
-# 修改默认主题(Modify default theme)
-echo 'Modify default theme...'
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+#取消原主题luci-theme-bootstrap为默认主题
+sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
+# 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
+sed -i 's/luci-theme-bootstrap/luci-theme-infinityfreedom/g' ./feeds/luci/collections/luci/Makefile
 
-# 固件版本栏自定义用户名
-#sed -i "s/Openwrt /passenger compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ Openwrt /g" $ZZZ
-# 修改版本信息
-date=`date +%Y.%m.%d`
-sed -i 's/OpenWrt/OpenWrt Build '$date' By passenger/g' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/%D %V, %C/%D %V, '$date' By passenger/g' package/base-files/files/etc/banner
+# 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
+#sed -i "s/OpenWrt /ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/OpenWrt /passener/g" package/lean/default-settings/files/zzz-default-settings
 
-# 清除登录密码
-#sed -i  's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g'  openwrt/package/lean/default-settings/files/zzz-default-settings
 #设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
@@ -59,6 +55,10 @@ EOF
 ############################################################################################################
 ###############################UA2F#########################################################################
 ############################################################################################################
+
+# 修改UA2F为开机自启
+sed -i 's/option enabled '0'/option enabled '1'/g' package/UA2F/files/ua2f.config
+
 # UA2F内核配置加入CONFIG_NETFILTER_NETLINK_GLUE_CT
 target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
 for configFile in $(ls target/linux/$target/config*)
