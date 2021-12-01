@@ -22,7 +22,7 @@ sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_gener
 sed -i "s/Openwrt /passenger compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ Openwrt /g" $ZZZ
 
 # 清除登录密码
-sed -i  's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g'  openwrt/package/lean/default-settings/files/zzz-default-settings
+#sed -i  's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g'  openwrt/package/lean/default-settings/files/zzz-default-settings
 
 # UA2F内核配置加入CONFIG_NETFILTER_NETLINK_GLUE_CT
 target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
