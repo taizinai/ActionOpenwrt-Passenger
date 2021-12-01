@@ -28,15 +28,10 @@ sed -i 's/cn.pool.ntp.org/pool.ntp.org/g' package/base-files/files/bin/config_ge
 echo 'Modify default theme...'
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
-# 固件版本栏自定义用户名
-#sed -i "s/Openwrt /passenger compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ Openwrt /g" $ZZZ
-# 修改版本信息
-date=`date +%Y.%m.%d`
-sed -i 's/OpenWrt/OpenWrt Build '$date' By passenger/g' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/%D %V, %C/%D %V, '$date' By passenger/g' package/base-files/files/etc/banner
+# 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
+#sed -i "s/OpenWrt /ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/OpenWrt /星新课代表/g" package/lean/default-settings/files/zzz-default-settings
 
-# 清除登录密码
-#sed -i  's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g'  openwrt/package/lean/default-settings/files/zzz-default-settings
 #设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
