@@ -42,6 +42,15 @@ sed -i "28a\echo \'*/60 * * * * sh /etc/memclean.sh\' > /etc/crontabs/root" pack
 sed -i '56a\chmod 1777 /etc/memclean.sh' package/lean/default-settings/files/zzz-default-settings
 sed -i '57a\chmod 1777 /sbin/shutdown' package/lean/default-settings/files/zzz-default-settings
 
+# Replace openwrt.org in diagnostics with www.baidu.com
+echo 'Replace openwrt.org in diagnostics.htm with www.baidu.com...'
+sed -i "/exit 0/d" package/lean/default-settings/files/zzz-default-settings
+cat <<EOF >>package/lean/default-settings/files/zzz-default-settings
+uci set luci.diag.ping=www.baidu.com
+uci set luci.diag.route=www.baidu.com
+uci set luci.diag.dns=www.baidu.com
+uci commit luc
+
 # UA2F内核配置加入CONFIG_NETFILTER_NETLINK_GLUE_CT
 target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
 for configFile in $(ls target/linux/$target/config*)
