@@ -13,6 +13,13 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
 
+# Modify default NTP server for campus_internet
+echo 'Modify default NTP server...'
+sed -i 's/ntp.aliyun.com/ntp1.aliyun.com/g' package/base-files/files/bin/config_generate
+sed -i 's/time1.cloud.tencent.com/time1.cloud.tencent.com/g' package/base-files/files/bin/config_generate
+sed -i 's/time.ustc.edu.cn/stdtime.gov.hk/g' package/base-files/files/bin/config_generate
+sed -i 's/cn.pool.ntp.org/pool.ntp.org/g' package/base-files/files/bin/config_generate
+
 # 取消bootstrap为默认主题
 #sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 # 修改默认主题为argon_new
